@@ -1,8 +1,10 @@
 package daniil.kobitskoy.worktest.cardgamenew
 
+import android.R.attr
 import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -19,14 +21,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
-import com.facebook.FacebookSdk
 import com.facebook.appevents.AppEventsConstants.EVENT_NAME_ACTIVATED_APP
 import com.facebook.appevents.AppEventsLogger
 import com.facebook.applinks.AppLinkData
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import daniil.kobitskoy.worktest.cardgamenew.databinding.ActivityMainBinding
 import java.util.*
 
@@ -37,7 +41,7 @@ private var mAdapter: GridAdapter? = null
 var GRID_SIZE: Int = 4
 lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity() {
-
+    private var mSamples: List<Sample>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -263,7 +267,21 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
-
+        FirebaseDynamicLinks.getInstance()
+            .getDynamicLink(intent)
+            .addOnSuccessListener(this,
+                OnSuccessListener<Any?> { pendingDynamicLinkData -> // Get deep link from result (may be null if no link is found)
+                    val deepLink: Uri
+                    if (pendingDynamicLinkData != null) {
+                        deepLink = pendingDynamicLinkData as Uri
+                        if (deepLink != null) {
+                            val path: String = deepLink.getLastPathSegment()!!
+                            handleDynamicLinkPath(path)
+                        }
+                    }
+                })
+            .addOnFailureListener(this,
+                OnFailureListener { e -> Log.w("TAG", "getDynamicLink:onFailure", e) })
         mGrid = findViewById<View>(R.id.field) as? GridView
         mGrid!!.numColumns = GRID_SIZE
         mGrid!!.isEnabled = true
@@ -285,6 +303,20 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun handleDynamicLinkPath(path: String) {
+        if (mSamples != null) {
+            for (sample in mSamples!!) {
+                if (sample.dynamicLinkPath.equals(attr.path)) {
+                    Log.d("Deep", "DeepLink сработал")
+                    return
+                }
+            }
+        }
+        showDynamicLinkResolveError()
+    }
+    private fun showDynamicLinkResolveError() {
+        Toast.makeText(this, "R.string.no_sample_found", Toast.LENGTH_LONG).show()
+    }
     private fun logSentFriendReuestEvent() {
         val logger = AppEventsLogger.newLogger(this@MainActivity)
         logger.logEvent(EVENT_NAME_ACTIVATED_APP)
@@ -321,5 +353,10 @@ class MainActivity : AppCompatActivity() {
         webManager = connectivityManager.activeNetworkInfo
         return webManager != null && webManager.isConnected
     }
+    internal class Sample(
+        var header: String,
+        var classtoStart: Class<*>,
+        var dynamicLinkPath: String
+    )
 }
 

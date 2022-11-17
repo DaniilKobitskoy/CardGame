@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".App"
+
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/icon"
@@ -34,7 +34,12 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="@string/fb_login_protocol_scheme" />
+                <data android:scheme="@string/fb_login_protocol_scheme"
+                    android:host="daniilkobitskoy.page.link"
+                   />
+                <data
+                    android:scheme="https"
+                    />
             </intent-filter>
 
              <meta-data
