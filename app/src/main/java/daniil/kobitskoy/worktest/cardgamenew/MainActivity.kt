@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
         logSentFriendReuestEvent()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        FacebookSdk.setAutoInitEnabled(true)
-        FacebookSdk.fullyInitialize()
+//        FacebookSdk.setAutoInitEnabled(true)
+//        FacebookSdk.fullyInitialize()
         AppLinkData.fetchDeferredAppLinkData(
             this
         ) {
