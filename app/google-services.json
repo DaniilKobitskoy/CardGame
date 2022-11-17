@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "829010147610",
+    "project_id": "cards-319f6",
+    "storage_bucket": "cards-319f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829010147610:android:c8a31eb25f8d8e341394a3",
+        "android_client_info": {
+          "package_name": "daniil.kobitskoy.worktest.cardgamenew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829010147610-ivj6ic1qvnlblt2f0ndkjokplpcudnnj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "daniil.kobitskoy.worktest.cardgamenew",
+            "certificate_hash": "a1520cec6560a7307c49f48669c2d8d4f643b0dc"
+          }
+        },
+        {
+          "client_id": "829010147610-h347ugg9o9sh5hif9t100f6jbabfprsm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7feh5y5Jal1MVgBtuk8u1ZPwyvmuY3sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829010147610-h347ugg9o9sh5hif9t100f6jbabfprsm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

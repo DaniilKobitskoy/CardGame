@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splash2">
+
+    <fragment
+        android:id="@+id/splash2"
+        android:name="daniil.kobitskoy.worktest.cardgamenew.splash"
+        android:label="splash"
+        tools:layout="@layout/splash" >
+        <action
+            android:id="@+id/action_splash2_to_mainwindow2"
+            app:destination="@id/mainwindow2" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainwindow2"
+        android:name="daniil.kobitskoy.worktest.cardgamenew.mainwindow"
+        android:label="mainwindow" />
+</navigation>

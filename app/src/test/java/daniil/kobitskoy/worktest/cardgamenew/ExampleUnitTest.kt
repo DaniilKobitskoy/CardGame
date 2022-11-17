@@ -1,4 +1,4 @@
-package daniil.kobitskoy.testwork.cardgame
+package daniil.kobitskoy.worktest.cardgamenew
 
 import org.junit.Test
 

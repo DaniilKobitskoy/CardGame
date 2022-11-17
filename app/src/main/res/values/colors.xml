@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="textcolor">#FF006D</color>
+    <color name="bgcolor">#41405A</color>
+    <color name="layout_new_ups_app_vers_six_light">#00FFFFFF</color>
+    <color name="layout_new_ups_app_vers_six_dark">#00000988</color>
 </resources>

@@ -1,4 +1,4 @@
-package daniil.kobitskoy.testwork.cardgame
+package daniil.kobitskoy.worktest.cardgamenew
 
 import android.content.Context
 import android.content.res.Resources
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
+import daniil.kobitskoy.worktest.cardgamenew.R
 import java.util.*
 
 
@@ -18,9 +19,9 @@ internal class GridAdapter(
     private val arrPict // массив картинок
             : ArrayList<String?> = ArrayList()
     private val PictureCollection // Префикс набора картинок
-            : String = "animal"
+            : String
     private val mRes // Ресурсы приложени
-            : Resources = mContext.resources
+            : Resources
 
     private enum class Status {
         CELL_OPEN, CELL_CLOSE, CELL_DELETE
@@ -32,8 +33,10 @@ internal class GridAdapter(
     init {
 
         // Пока определяем префикс так, позже он будет браться из настроек
+        PictureCollection = "animal"
 
         // Получаем все ресурсы приложения
+        mRes = mContext.resources
 
         // Метод заполняющий массив vecPict
         makePictArray()
@@ -73,7 +76,7 @@ internal class GridAdapter(
         return 0
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         val view: ImageView =
             if (convertView == null) ImageView(mContext) else convertView as ImageView // выводиться у нас будет картинка
         when (arrStatus[position]) {
