@@ -17,13 +17,16 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
+import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
-import com.appsflyer.attribution.AppsFlyerRequestListener
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsConstants.EVENT_NAME_ACTIVATED_APP
+import com.facebook.appevents.AppEventsLogger
+import com.facebook.applinks.AppLinkData
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import daniil.kobitskoy.worktest.cardgamenew.R
 import daniil.kobitskoy.worktest.cardgamenew.databinding.ActivityMainBinding
 import java.util.*
 
@@ -35,13 +38,68 @@ var GRID_SIZE: Int = 4
 lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+
+        logSentFriendReuestEvent()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        FacebookSdk.setAutoInitEnabled(true)
+        FacebookSdk.fullyInitialize()
+        AppLinkData.fetchDeferredAppLinkData(
+            this
+        ) {
+            // Process app link data
+        }
+        Log.d("get", "get")
+//        fun returnAttribution(): MutableMap<String, Any>? {
+//
+//
+//            return response
+//        }
+       // var logger = java.util.logging.Logger.getLogger(this.javaClass.name)
 
+        val conversionListener: AppsFlyerConversionListener = object : AppsFlyerConversionListener {
+            override fun onConversionDataSuccess(conversionDataMap: MutableMap<String, Any>?) {
+                parametrs_main.response = conversionDataMap
+                for (attrName in conversionDataMap!!.keys) Log.d(
 
+                    "LOG_TAG",
+                    "Conversion attribute: " + attrName + " = " + conversionDataMap!![attrName]
+                )
+                val status: String =
+                    Objects.requireNonNull(conversionDataMap!!["af_status"]).toString()
+                if (status == "Organic") {
+                    // Business logic for Organic conversion goes here.
+                } else {
+                    // Business logic for Non-organic conversion goes here.
+                }
+            }
+
+            override fun onConversionDataFail(errorMessage: String) {
+                Log.d(
+                    "LOG_TAG",
+                    "error getting conversion data: $errorMessage"
+                )
+            }
+
+            override fun onAppOpenAttribution(attributionData: Map<String, String>) {
+                // Must be overriden to satisfy the AppsFlyerConversionListener interface.
+                // Business logic goes here when UDL is not implemented.
+            }
+
+            override fun onAttributionFailure(errorMessage: String) {
+                // Must be overriden to satisfy the AppsFlyerConversionListener interface.
+                // Business logic goes here when UDL is not implemented.
+                Log.d("LOG_TAG", "error onAttributionFailure : $errorMessage")
+            }
+        }
+
+        AppsFlyerLib.getInstance().init(parametrs_main.APPSFLYER_KEY, conversionListener, this)
+        AppsFlyerLib.getInstance().setDebugLog(true)
+        AppsFlyerLib.getInstance().start(this)
 
 
 
@@ -49,22 +107,14 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
            // Log.d("check1", "list.toString()")
 
-            var list = App().returnAttribution()
+//            var list = response
             val myDialogFragment = MyDialogFragment()
             val manager = supportFragmentManager
             //myDialogFragment.show(manager, "dialog")
             val transaction: FragmentTransaction = manager.beginTransaction()
             myDialogFragment.show(transaction, "dialog")
-//            if(   list  == null){
-//               val time = Toast.LENGTH_SHORT
-//                val toas = Toast.makeText(this, "Подожди", time)
-//               toas.show()
-//            }else{
-//                val time = Toast.LENGTH_SHORT
-//                val toast = Toast.makeText(this, "$list", time)
-//                toast.show()
-//            }
-            Log.d("check1", list.toString())
+
+            Log.d("check1", parametrs_main.response.toString())
 
 
 
@@ -213,6 +263,7 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+
         mGrid = findViewById<View>(R.id.field) as? GridView
         mGrid!!.numColumns = GRID_SIZE
         mGrid!!.isEnabled = true
@@ -234,8 +285,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun logSentFriendReuestEvent() {
+        val logger = AppEventsLogger.newLogger(this@MainActivity)
+        logger.logEvent(EVENT_NAME_ACTIVATED_APP)
+    }
 
-override fun onKeyDown(keyCodelamano_3animatelamano_3: Int, eventlamano_3animatelamano_3: KeyEvent?): Boolean {
+
+    override fun onKeyDown(keyCodelamano_3animatelamano_3: Int, eventlamano_3animatelamano_3: KeyEvent?): Boolean {
     if ((keyCodelamano_3animatelamano_3 == KeyEvent.KEYCODE_BACK) && binding.webview.canGoBack()) {
         binding.webview.goBack()
         return true

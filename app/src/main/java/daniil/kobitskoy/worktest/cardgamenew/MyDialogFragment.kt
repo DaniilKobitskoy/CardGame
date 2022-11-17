@@ -13,7 +13,7 @@ class MyDialogFragment() : DialogFragment() {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.setTitle("AppsFlyer")
-                .setMessage(App().returnAttribution( ).toString())
+                .setMessage(parametrs_main.response.toString())
                 .setPositiveButton("Закрыть") {
                         dialog, id ->  dialog.cancel()
                 }
