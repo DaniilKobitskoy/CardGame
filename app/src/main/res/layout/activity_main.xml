@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bggame"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -56,10 +56,10 @@
     <GridView
         android:id="@+id/field"
         android:layout_width="match_parent"
-        android:layout_height="513dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -70,11 +70,12 @@
         android:layout_height="wrap_content"
         android:text="AppsFlyer"
         android:textAllCaps="false"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/field" />
-
+        app:layout_constraintTop_toBottomOf="@+id/field"
+        app:layout_constraintVertical_bias="0.742" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

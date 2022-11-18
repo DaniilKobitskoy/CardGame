@@ -298,6 +298,24 @@ class MainActivity : AppCompatActivity() {
                     "Игра закончена",
                     Toast.LENGTH_SHORT
                 ).show()
+                binding.button.setOnClickListener {
+                    mGrid = findViewById<View>(R.id.field) as? GridView
+                    mGrid!!.numColumns = GRID_SIZE + 1
+                    mGrid!!.isEnabled = true
+
+                    mAdapter = GridAdapter(this, GRID_SIZE, GRID_SIZE)
+                    mGrid!!.adapter = mAdapter
+                    mGrid!!.onItemClickListener =
+                        OnItemClickListener { parent, v, position, id ->
+                            mAdapter!!.checkOpenCells()
+                            mAdapter!!.openCell(position)
+                            if (mAdapter!!.checkGameOver()) Toast.makeText(
+                                applicationContext,
+                                "Игра закончена",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                }
             }
 
 
