@@ -49,14 +49,16 @@ class window6 : Fragment() {
         }
         binding66.button.setOnClickListener {
             Log.d("check", "check")
+
             val myDialogFragment = MyDialogFragment()
-//            if (myDialogFragment.isAdded){
-//                return@setOnClickListener
-//            }
-            val manager = parentFragmentManager
-            myDialogFragment.show(manager, "dialog")
-            val transaction: FragmentTransaction = manager.beginTransaction()
-            myDialogFragment.show(transaction, "dialog")
+myDialogFragment.show(childFragmentManager, myDialogFragment.tag)
+        ////            if (myDialogFragment.isAdded){
+////                return@setOnClickListener
+////            }
+//            val manager = parentFragmentManager
+//            myDialogFragment.show(manager, "dialog")
+//            val transaction: FragmentTransaction = manager.beginTransaction()
+//            myDialogFragment.show(transaction, "dialog")
 
 
         }
