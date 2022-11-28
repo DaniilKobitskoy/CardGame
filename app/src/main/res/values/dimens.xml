@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text">35sp</dimen>
+    <dimen name="textmenu">21sp</dimen>
+    <dimen name="txt">21sp</dimen>
 </resources>

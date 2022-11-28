@@ -3,6 +3,7 @@ package daniil.kobitskoy.worktest.cardgamenew
 import android.R.attr
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
@@ -108,31 +109,32 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        binding.button.setOnClickListener {
-           // Log.d("check1", "list.toString()")
+//        binding.button.setOnClickListener {
+//           // Log.d("check1", "list.toString()")
+//
+////            var list = response
+//            val myDialogFragment = MyDialogFragment()
+//            val manager = supportFragmentManager
+//            //myDialogFragment.show(manager, "dialog")
+//            val transaction: FragmentTransaction = manager.beginTransaction()
+//            myDialogFragment.show(transaction, "dialog")
+//
+//            Log.d("check1", parametrs_main.response.toString())
+//
+//        }
+//
+        Log.d("isEnabled", "Start")
 
-//            var list = response
-            val myDialogFragment = MyDialogFragment()
-            val manager = supportFragmentManager
-            //myDialogFragment.show(manager, "dialog")
-            val transaction: FragmentTransaction = manager.beginTransaction()
-            myDialogFragment.show(transaction, "dialog")
-
-            Log.d("check1", parametrs_main.response.toString())
-
-
-
-        }
         val lamano_3animatelamano_3= AnimationUtils.loadAnimation(this, R.anim.anvnseven)
         binding.MainText.startAnimation(lamano_3animatelamano_3)
         lamano_3animatelamano_3.setAnimationListener(object : Animation.AnimationListener {
-
 
             override fun onAnimationStart(pbindinganimatewebViewarraylisteningversion6234561: Animation?) {
             }
 
             override fun onAnimationEnd(animationlamano_3animatelamano_3: Animation?){
                 if (hasConnection(this@MainActivity)){
+                    Log.d("isEnabled", "Start")
 
                     FirebaseDatabase.getInstance().getReference("settings").child("isEnabled").addValueEventListener(object :
                         ValueEventListener {
@@ -142,6 +144,7 @@ class MainActivity : AppCompatActivity() {
                                 Log.d("isEnabled", "$isEnabled")
 
                                 if (isEnabled == "yes"){
+
                                     FirebaseDatabase.getInstance().getReference("settings").child("link").addValueEventListener(object :
                                         ValueEventListener {
                                         @SuppressLint("SetJavaScriptEnabled", "CutPasteId")
@@ -184,9 +187,9 @@ class MainActivity : AppCompatActivity() {
                                                         super.onPageFinished(viewlamano_3animatelamano_3, urllamano_3animatelamano_3)
 
                                                         webview?.visibility = View.VISIBLE
-                                                        binding.button.visibility = View.GONE
-                                                        binding.field.visibility = View.GONE
-                                                        binding.loading.visibility= View.GONE
+//                                                        binding.button.visibility = View.GONE
+//                                                        binding.field.visibility = View.GONE
+//                                                        binding.loading.visibility= View.GONE
 
                                               //          Log.d("ShishaLoundgeBar", "onPageFinishedarraylisteningversion6234561:$massivlamano_32")
                                                     }
@@ -200,8 +203,15 @@ class MainActivity : AppCompatActivity() {
                                                         if (errorlamano_3animatelamano_3?.errorCode == 404) {
                                                             Log.d("error", "onReceivedError: ")
                                                             webview.visibility = View.GONE
-                                                            binding.field.visibility = View.VISIBLE
-                                                            binding.button.visibility = View.VISIBLE
+                                                            startActivity(
+                                                                Intent(
+                                                                    this@MainActivity,
+                                                                    menu::class.java
+                                                                )
+                                                            )
+                                                            finish()
+//                                                            binding.field.visibility = View.VISIBLE
+//                                                            binding.button.visibility = View.VISIBLE
                                                             
                                                         }
                                                     }
@@ -215,8 +225,13 @@ class MainActivity : AppCompatActivity() {
                                                         if (errorResponselamano_3animatelamano_3?.statusCode == 404) {
                                                             Log.d("error12341", "onReceivedErrorarraylisteningversion6234561: ")
                                                             webview.visibility = View.GONE
-                                                            binding.field.visibility = View.VISIBLE
-                                                            binding.button.visibility = View.VISIBLE
+                                                            startActivity(
+                                                                Intent(
+                                                                    this@MainActivity,
+                                                                    menu::class.java
+                                                                )
+                                                            )
+                                                            finish()
 
                                                         }
                                                     }
@@ -243,11 +258,13 @@ class MainActivity : AppCompatActivity() {
 
 
                                 }else{
+                                   startMenu()
 
-                                    findViewById<WebView>(R.id.webview).visibility = View.GONE
-                                    binding.loading.visibility = View.GONE
-                                    binding.button.visibility = View.VISIBLE
-                                    binding.field.visibility = View.VISIBLE
+//
+//                                    findViewById<WebView>(R.id.webview).visibility = View.GONE
+//                                    binding.loading.visibility = View.GONE
+//                                    binding.button.visibility = View.VISIBLE
+//                                    binding.field.visibility = View.VISIBLE
 
 
                                 }
@@ -260,7 +277,13 @@ class MainActivity : AppCompatActivity() {
                     })
 
                 }else{
-
+                    startActivity(
+                        Intent(
+                            this@MainActivity,
+                            menu::class.java
+                        )
+                    )
+                    finish()
                 }
             }
             override fun onAnimationRepeat(animationlamano_3animatelamano_3: Animation?){
@@ -282,43 +305,48 @@ class MainActivity : AppCompatActivity() {
                 })
             .addOnFailureListener(this,
                 OnFailureListener { e -> Log.w("TAG", "getDynamicLink:onFailure", e) })
-        mGrid = findViewById<View>(R.id.field) as? GridView
-        mGrid!!.numColumns = GRID_SIZE
-        mGrid!!.isEnabled = true
+//       mGrid = findViewById<View>(R.id.field) as? GridView
+//        mGrid!!.numColumns = GRID_SIZE
+//        mGrid!!.isEnabled = true
+//
+//        mAdapter = GridAdapter(this, GRID_SIZE, GRID_SIZE)
+//        mGrid!!.adapter = mAdapter
+//
+//        mGrid!!.onItemClickListener =
+//            OnItemClickListener { parent, v, position, id ->
+//                mAdapter!!.checkOpenCells()
+//                if (mAdapter!!.checkGameOver()) Toast.makeText(
+//                    applicationContext,
+//                    "Игра закончена",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+////                binding.button.setOnClickListener {
+////                    mGrid = findViewById<View>(R.id.field) as? GridView
+////                    mGrid!!.numColumns = GRID_SIZE + 1
+////                    mGrid!!.isEnabled = true
+////
+////                    mAdapter = GridAdapter(this, GRID_SIZE, GRID_SIZE)
+////                    mGrid!!.adapter = mAdapter
+////                    mGrid!!.onItemClickListener =
+////                        OnItemClickListener { parent, v, position, id ->
+////                            mAdapter!!.checkOpenCells()
+////                            mAdapter!!.openCell(position)
+////                            if (mAdapter!!.checkGameOver()) Toast.makeText(
+////                                applicationContext,
+////                                "Игра закончена",
+////                                Toast.LENGTH_SHORT
+////                            ).show()
+////                        }
+////                }
+//            }
 
-        mAdapter = GridAdapter(this, GRID_SIZE, GRID_SIZE)
-        mGrid!!.adapter = mAdapter
 
-        mGrid!!.onItemClickListener =
-            OnItemClickListener { parent, v, position, id ->
-                mAdapter!!.checkOpenCells()
-                mAdapter!!.openCell(position)
-                if (mAdapter!!.checkGameOver()) Toast.makeText(
-                    applicationContext,
-                    "Игра закончена",
-                    Toast.LENGTH_SHORT
-                ).show()
-                binding.button.setOnClickListener {
-                    mGrid = findViewById<View>(R.id.field) as? GridView
-                    mGrid!!.numColumns = GRID_SIZE + 1
-                    mGrid!!.isEnabled = true
+    }
 
-                    mAdapter = GridAdapter(this, GRID_SIZE, GRID_SIZE)
-                    mGrid!!.adapter = mAdapter
-                    mGrid!!.onItemClickListener =
-                        OnItemClickListener { parent, v, position, id ->
-                            mAdapter!!.checkOpenCells()
-                            mAdapter!!.openCell(position)
-                            if (mAdapter!!.checkGameOver()) Toast.makeText(
-                                applicationContext,
-                                "Игра закончена",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                }
-            }
-
-
+    private fun startMenu() {
+        Log.d("здесь", "startNew")
+        val intent = Intent(this@MainActivity, menu::class.java)
+        startActivity(intent)
     }
 
     private fun handleDynamicLinkPath(path: String) {

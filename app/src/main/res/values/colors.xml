@@ -11,4 +11,45 @@
     <color name="bgcolor">#41405A</color>
     <color name="layout_new_ups_app_vers_six_light">#00FFFFFF</color>
     <color name="layout_new_ups_app_vers_six_dark">#00000988</color>
+
+
+
+    <color name="nfibet3_purple_200">#A65FFD</color>
+    <color name="nfibet3_purple_500">#5601D1</color>
+    <color name="nfibet3_purple_700">#3602AA</color>
+    <color name="nfibet3_teal_200">#02BDAC</color>
+    <color name="nfibet3_teal_700">#039796</color>
+    <color name="nfibet3_black">#0E0D0D</color>
+    <color name="nfibet3_white">#AFAFAF</color>
+    <color name="nfibet3_back">#1C0937</color>
+    <color name="nfibet3_light">#B50202</color>
+    <color name="nfibet3_dark">#070E77</color>
+    <color name="nfibet3_perple">#428EA1</color>
+
+
+    <color name="nfibet3_cal">#927EA1</color>
+    <color name="nfibet3_back_button5">#33BDBD</color>
+    <color name="nfibet3_dot">#AAB3A8</color>
+    <color name="nfibet3_black_text">#120707</color>
+    <color name="nfibet3_white_txt">#EFEDED</color>
+    <color name="nfibet3_background_num">#14D8F1</color>
+    <color name="nfibet3_txt_back">#9A60C3</color>
+    <color name="nfibet3_">#0F3E3939</color>
+    <color name="nfibet3_main_red">#E43449</color>
+    <color name="nfibet3_transparent">#000B0A0A</color>
+    <color name="nfibet3_main_background">#D8D8D8</color>
+    <color name="text">#272626</color>
+    <color name="nfibet3_light_grey">#878787</color>
+    <color name="nfibet3_dark_color">#BF073059</color>
+    <color name="nfibet3_night_calendar_point">#616161</color>
+    <color name="nfibet3_day_calendar_point">#D62C41</color>
+    <color name="nfibet3_for_admins_button_background">#990E4578</color>
+    <color name="nfibet3_dark_blue">#092A49</color>
+    <color name="nfibet3_textback">#B3545DE4</color>
+
+
+
+
+
+
 </resources>

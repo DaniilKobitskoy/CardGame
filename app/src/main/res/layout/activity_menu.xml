@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/maiwindows"
+    tools:context=".menu">
+
+    <FrameLayout
+        android:id="@+id/containerfragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linerMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/egipetcolor"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:id="@+id/nfibet3_04menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/nfibet3_04menuLinearScroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nfibet3_04_menuTxtMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:text="@string/view"
+                    android:textColor="@color/nfibet3_black"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/nfibet3_04menurazdel1"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:orientation="horizontal">
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/egipetbutton1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        app:neumorph_shadowColorDark="@color/nfibet3_dark"
+                        app:neumorph_shadowColorLight="@color/nfibet3_light">
+
+                        <LinearLayout
+                            android:id="@+id/nfibet3_04menupodrazdel1"
+                            android:layout_width="153dp"
+                            android:layout_height="271dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menutext1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="@string/edypet1"
+                                android:textColor="@color/nfibet3_light"
+                                android:textSize="@dimen/textmenu"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menusocritie1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/nfibet3_04menubuttonOpen1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Open"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+                    </soup.neumorphism.NeumorphCardView>
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/egipetbutton2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        app:neumorph_shadowColorDark="@color/nfibet3_dark"
+                        app:neumorph_shadowColorLight="@color/nfibet3_light">
+
+                        <LinearLayout
+                            android:id="@+id/nfibet3_04menupodrazdel2"
+                            android:layout_width="174dp"
+                            android:layout_height="269dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menutext2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/edypet2"
+                                android:textColor="@color/nfibet3_light"
+                                android:textSize="@dimen/textmenu"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menusocritie2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/nfibet3_04menubuttonOpen2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Open"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                    </soup.neumorphism.NeumorphCardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/nfibet3_04menurazdel2"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:orientation="horizontal">
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/egipetbutton3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        app:neumorph_shadowColorDark="@color/nfibet3_dark"
+                        app:neumorph_shadowColorLight="@color/nfibet3_light">
+
+                        <LinearLayout
+                            android:id="@+id/nfibet3_04menupodrazdel3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menutext3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:shadowColor="@color/nfibet3_light"
+                                android:text="@string/edypet3"
+                                android:textColor="@color/nfibet3_light"
+                                android:textSize="@dimen/textmenu"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menusocritie3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/nfibet3_04menubuttonOpen3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Open"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+                    </soup.neumorphism.NeumorphCardView>
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/egipetbutton4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        app:neumorph_shadowColorDark="@color/nfibet3_dark"
+                        app:neumorph_shadowColorLight="@color/nfibet3_light">
+
+                        <LinearLayout
+                            android:id="@+id/nfibet3_04menupodrazdel4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menutext4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/edypet4"
+                                android:textColor="@color/nfibet3_light"
+                                android:textSize="@dimen/textmenu"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menusocritie4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/nfibet3_04menubuttonOpen4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Open"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                    </soup.neumorphism.NeumorphCardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/nfibet3_04menurazdel3"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:orientation="horizontal">
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/egipetbutton5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        app:neumorph_shadowColorDark="@color/nfibet3_dark"
+                        app:neumorph_shadowColorLight="@color/nfibet3_light">
+
+                        <LinearLayout
+                            android:id="@+id/nfibet3_04menu2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menutext5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="@string/edypet5"
+                                android:textColor="@color/nfibet3_light"
+                                android:textSize="@dimen/textmenu"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menusocritie5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/nfibet3_04menubuttonOpen5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Open"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+                    </soup.neumorphism.NeumorphCardView>
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/egipetbutton6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        app:neumorph_shadowColorDark="@color/nfibet3_dark"
+                        app:neumorph_shadowColorLight="@color/nfibet3_light">
+
+                        <LinearLayout
+                            android:id="@+id/nfibet3_04menuLL"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menutext6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/edypet6"
+                                android:textColor="@color/nfibet3_light"
+                                android:textSize="@dimen/textmenu"
+                                android:textStyle="bold"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/nfibet3_04menusocritie6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/nfibet3_04menubuttonOpen6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Open"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                    </soup.neumorphism.NeumorphCardView>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
